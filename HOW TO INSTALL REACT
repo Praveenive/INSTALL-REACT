@@ -1,0 +1,8 @@
+open command prompt and use these link https://create-react-app.dev/docs/getting-started/
+go to C folder use these keyword cd.. or (use c:)
+npm uninstall -g create-react-app (use these for remove existing files)
+npx create-react-app my-app use these link 
+then showing happy hacking
+cd Folder name
+next npm start
+finsh avalo dha
