@@ -1,0 +1,77 @@
+import "./styles.css";
+import React, { createContext, useContext,  useState } from "react";
+
+const OTTCon = createContext(null)
+export default function App() {
+  const [netflix,setNetflix] = useState("Ep - 0")
+  const [amazon,setAmazon]=useState("EP-0")
+  return (
+    <div className="App">
+      <OTTCon.Provider
+      value={{
+        netflix,setNetflix,amazon,setAmazon
+      }}
+      
+      >
+      <Devices/>
+      </OTTCon.Provider>
+    </div>
+  );
+}
+
+function Devices(){
+  return(
+    <>
+<Phone/>
+<TV/>
+<Laptop/>
+</>
+  )
+}
+
+function Phone(){
+  const {netflix,setNetflix,amazon,setAmazon}=useContext(OTTCon)
+  
+  return(
+    <>
+    <h1>Phone</h1>
+    <h5>Netflix watched {netflix}</h5>
+    <h5>Amazon watched {amazon}</h5>
+   
+    <button onClick={()=>setNetflix("Ep-5")}>Watch Netflix</button>{" "}
+    <button onClick={()=>setAmazon("Ep-10")}>Watch Amazon</button>
+
+    
+    </>
+  )
+}
+function TV(){
+  const {netflix,setNetflix}=useContext(OTTCon)
+  const {amazon,setAmazon}=useContext(OTTCon)
+  return(
+    <>
+    <h1>TV</h1>
+    <h5>Netflix watched {netflix} </h5>
+    <h5>Amazon watched {amazon}</h5>
+    <button onClick={()=>setNetflix("Ep-50")}>Watch Netflix</button>{" "}
+    <button onClick={()=>setAmazon("Ep-100")}>Watch Amazon</button>
+
+    
+    </>
+  )
+}
+function Laptop(){
+  const {netflix,setNetflix}=useContext(OTTCon)
+  const {amazon,setAmazon}=useContext(OTTCon)
+  return(
+    <>
+    <h1>Laptop</h1>
+    <h5>Netflix watched {netflix} </h5>
+    <h5>Amazon watched {amazon}</h5>
+    <button onClick={()=>setNetflix("Ep-500")}>Watch Netflix</button>{" "}
+    <button onClick={()=>setAmazon("Ep-1000")}>Watch Amazon</button>
+
+    
+    </>
+  )
+}
